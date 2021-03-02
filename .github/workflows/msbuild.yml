@@ -18,7 +18,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Decrypt snk
-      run: gpg --quiet --batch --yes --decrypt --passphrase="$TESTSNKKEY" --output ../test.snk ./test.snk.gpg
-      env:
-        TESTSNKKEY: ${{ secrets.TESTSNKKEY }}
+      run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.TESTSNKKEY }}" --output ../test.snk ./test.snk.gpg
 
